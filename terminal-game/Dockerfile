@@ -36,4 +36,4 @@ COPY art.py .
 EXPOSE 7681
 
 # 6. Pornim ttyd cu scriptul de start
-CMD ["ttyd", "--port", "7681", "./start.sh"]
+CMD ["ttyd", "--port", "7681", "--raw", "/bin/bash", "-c", "stty sane && python3 -u blackjack.py"]
