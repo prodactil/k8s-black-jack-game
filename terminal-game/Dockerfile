@@ -1,10 +1,13 @@
 FROM python:3.11-slim
 
-# Instalăm unelte de bază pentru descărcare
-RUN apt-get update && apt-get install -y wget ca-certificates && rm -rf /var/lib/apt/lists/*
+# Instalăm unelte de bază și script
+RUN apt-get update && apt-get install -y \
+        wget \
+        ca-certificates \
+        bsdutils \
+        && rm -rf /var/lib/apt/lists/*
 
 # Detectăm arhitectura și descărcăm binarul corect de ttyd
-# (versiune stabilă și compatibilă cu amd64 și arm64)
 RUN ARCH=$(dpkg --print-architecture) && \
     if [ "$ARCH" = "arm64" ]; then \
         wget -O /usr/local/bin/ttyd https://github.com/tsl0922/ttyd/releases/latest/download/ttyd.aarch64; \
@@ -12,7 +15,7 @@ RUN ARCH=$(dpkg --print-architecture) && \
         wget -O /usr/local/bin/ttyd https://github.com/tsl0922/ttyd/releases/latest/download/ttyd.x86_64; \
     fi && chmod +x /usr/local/bin/ttyd
 
-# Setăm directorul de lucru
+# Director de lucru
 WORKDIR /terminal-game
 
 # Copiem și instalăm dependințele Python
@@ -23,8 +26,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY blackjack.py .
 COPY art.py .
 
-# Expunem portul pe care rulează ttyd
+# Expunem portul ttyd
 EXPOSE 7681
 
-# Pornim jocul prin ttyd
+# Pornim jocul cu pseudo-terminal complet, reconectare automată
 CMD ["ttyd", "--port", "7681", "--reconnect", "bash", "-ic", "python3 -u blackjack.py"]
