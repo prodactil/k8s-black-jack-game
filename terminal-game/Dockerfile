@@ -27,4 +27,4 @@ COPY art.py .
 EXPOSE 7681
 
 # Pornim jocul prin ttyd
-CMD ["ttyd", "--port", "7681", "bash", "-c", "script -q -c 'python3 blackjack.py' /dev/null"]
+CMD ["ttyd", "--port", "7681", "--reconnect", "bash", "-ic", "python3 -u blackjack.py"]
