@@ -27,4 +27,4 @@ COPY art.py .
 EXPOSE 7681
 
 # Pornim jocul prin ttyd
-CMD ["ttyd", "--port", "7681", "python3", "blackjack.py"]
+CMD ["ttyd", "--port", "7681", "bash", "-c","python3", "blackjack.py"]
