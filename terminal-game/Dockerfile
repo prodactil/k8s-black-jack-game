@@ -13,7 +13,7 @@ RUN ARCH=$(dpkg --print-architecture) && \
     fi && chmod +x /usr/local/bin/ttyd
 
 # Setăm directorul de lucru
-WORKDIR /app
+WORKDIR /terminal-game
 
 # Copiem și instalăm dependințele Python
 COPY requirements.txt .
@@ -21,6 +21,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copiem jocul
 COPY blackjack.py .
+COPY art.py .
 
 # Expunem portul pe care rulează ttyd
 EXPOSE 7681
