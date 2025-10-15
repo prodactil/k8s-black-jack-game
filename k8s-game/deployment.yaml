@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: blackjack
-        image: prodactil/blackjack:latest
+        image: prodactil/blackjack-terminal:latest
         ports:
         - containerPort: 7681
         tty: true                # <<< ESENȚIAL
