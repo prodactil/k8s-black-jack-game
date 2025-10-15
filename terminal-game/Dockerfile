@@ -23,4 +23,4 @@ COPY art.py .
 
 EXPOSE 7681
 
-CMD ["ttyd", "--port", "7681", "script", "-q", "-c", "python3 -u blackjack.py", "/dev/null"]
+CMD ["ttyd", "--port", "7681", "--writable", "/bin/bash", "-i", "-c", "python3 -u blackjack.py"]
