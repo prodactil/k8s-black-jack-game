@@ -30,4 +30,4 @@ COPY art.py .
 EXPOSE 7681
 
 # Pornim jocul cu pseudo-terminal complet, reconectare automată
-CMD ["ttyd", "--port", "7681", "script", "-q", "-c", "python3 -u blackjack.py", "/dev/null"]
+CMD ["ttyd", "--port", "7681", "python3", "-u", "blackjack.py"]
