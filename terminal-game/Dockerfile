@@ -12,15 +12,15 @@ RUN wget -O /usr/local/bin/ttyd https://github.com/tsl0922/ttyd/releases/latest/
     && chmod +x /usr/local/bin/ttyd
 
 # Setăm directorul aplicației
-WORKDIR /app
+WORKDIR /terminal-game
 
 # Copiem fișierele jocului
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-COPY game.py .
+COPY blackjack.py .
 
 # Portul pe care rulează ttyd
 EXPOSE 7681
 
 # Rulăm ttyd care pornește jocul tău Python
-CMD ["ttyd", "--port", "7681", "python3", "game.py"]
+CMD ["ttyd", "--port", "7681", "python3", "blackjack.py"]
