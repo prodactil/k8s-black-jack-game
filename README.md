@@ -22,21 +22,21 @@ k8s-black-jack-game/
 ```
 ---
 ## ⚙️ Tech Stack
-	•	Python 3.11 (CLI Game)
-	•	Docker
-	•	Kubernetes (Docker Desktop / Minikube / Kind)
-	•	NGINX Ingress Controller
-	•	ttyd (terminal to browser)
+•	Python 3.11 (CLI Game)
+•	Docker
+•	Kubernetes (Docker Desktop / Minikube / Kind)
+•	NGINX Ingress Controller
+•	ttyd (terminal to browser)
 
 ---
 ## 🌐 Access
-	•	Via port-forward: http://localhost:7681
-	•	Via Ingress: http://blackjack.local
+•	Via port-forward: http://localhost:7681
+•	Via Ingress: http://blackjack.local
 (Add 127.0.0.1 blackjack.local to /etc/hosts for local testing)
 
 ---
 ### 📝 Notes
-	•	The game uses Python’s standard library only, no external dependencies.
-	•	ttyd enables interactive terminal access in browser.
-	•	Deployment manifest uses tty: true and stdin: true to ensure input works.
-	•	All output is unbuffered using python3 -u for live terminal updates
+•	The game uses Python’s standard library only, no external dependencies.
+•	ttyd enables interactive terminal access in browser.
+•	Deployment manifest uses tty: true and stdin: true to ensure input works.
+•	All output is unbuffered using python3 -u for live terminal updates
