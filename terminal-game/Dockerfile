@@ -21,8 +21,8 @@ RUN ARCH=$(dpkg --print-architecture) && \
 WORKDIR /terminal-game
 
 # 3. Creăm scriptul de start (pentru a forța I/O corect)
-RUN echo '#!/bin/bash\n\n# Resetează terminalul pentru I/O corect\nstty sane\n\n# Rulează jocul\npython3 -u blackjack.py' > /terminal-game/start.sh
-RUN chmod +x /terminal-game/start.sh
+# RUN echo '#!/bin/bash\n\n# Resetează terminalul pentru I/O corect\nstty sane\n\n# Rulează jocul\npython3 -u blackjack.py' > /terminal-game/start.sh
+# RUN chmod +x /terminal-game/start.sh
 
 # 4. Copiem și instalăm dependințele Python
 COPY requirements.txt .
