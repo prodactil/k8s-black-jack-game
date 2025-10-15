@@ -1,12 +1,11 @@
 FROM python:3.11-slim
 
 RUN apt-get update && apt-get install -y \
-        wget \
-        ca-certificates \
-        bsdutils \
-        && rm -rf /var/lib/apt/lists/*
+    wget \
+    ca-certificates \
+    util-linux \
+    && rm -rf /var/lib/apt/lists/*
 
-# Instalăm ttyd
 RUN ARCH=$(dpkg --print-architecture) && \
     if [ "$ARCH" = "arm64" ]; then \
         wget -O /usr/local/bin/ttyd https://github.com/tsl0922/ttyd/releases/latest/download/ttyd.aarch64; \
@@ -24,5 +23,4 @@ COPY art.py .
 
 EXPOSE 7681
 
-# CMD final: pseudo-terminal complet, input funcțional în browser
 CMD ["ttyd", "--port", "7681", "script", "-q", "-c", "python3 -u blackjack.py", "/dev/null"]

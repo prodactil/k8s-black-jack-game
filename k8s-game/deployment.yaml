@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: blackjack-deployment
+  name: blackjack
 spec:
   replicas: 1
   selector:
@@ -13,8 +13,10 @@ spec:
         app: blackjack
     spec:
       containers:
-      - name: blackjack-container
-        image: prodactil/blackjack-terminal:latest
-        imagePullPolicy: Always
+      - name: blackjack
+        image: prodactil/blackjack:latest
         ports:
         - containerPort: 7681
+        tty: true                # <<< ESENȚIAL
+        stdin: true              # <<< ESENȚIAL
+        imagePullPolicy: Always
