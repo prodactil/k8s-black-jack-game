@@ -4,6 +4,8 @@ import random
 from art import logo
 import os
 
+print(logo)
+
 def cls():
     os.system('cls' if os.name == 'nt' else 'clear')
 
