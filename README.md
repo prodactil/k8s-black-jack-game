@@ -9,11 +9,11 @@ I created a containerized terminal-based Blackjack game in Python and deployed i
 ## 🧱 Project Structure
 ```bash
 k8s-black-jack-game/  
-├── app
+├── terminal-game/
 │   ├── blackjack.py
 │   ├── art.py
 │   └── requirements.txt
-├── k8s
+├── k8s-game/
 │   ├── deployment.yaml
 │   ├── ingress.yaml
 │   └── service.yaml
