@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: blackjack-container
-        image: blackjack-terminal:latest
+        image: prodactil/blackjack-terminal:latest
         ports:
         - containerPort: 7681
