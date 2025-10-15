@@ -12,12 +12,12 @@ k8s-black-jack-game/
 ├── terminal-game/
 │   ├── blackjack.py
 │   ├── art.py
+│   ├── Dockerfile
 │   └── requirements.txt
 ├── k8s-game/
 │   ├── deployment.yaml
 │   ├── ingress.yaml
 │   └── service.yaml
-├── Dockerfile
 └── README.md
 ```
 ---
